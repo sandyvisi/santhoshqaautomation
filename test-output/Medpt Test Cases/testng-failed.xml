@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Medpt Test Cases]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Medpt Smoke Test cases(failed)">
+    <classes>
+      <class name="testPages.LoginToMedptAccount">
+        <methods>
+          <include name="trialPort"/>
+        </methods>
+      </class> <!-- testPages.LoginToMedptAccount -->
+    </classes>
+  </test> <!-- Medpt Smoke Test cases(failed) -->
+</suite> <!-- Failed suite [Medpt Test Cases] -->

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [view products suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="utils.ExtentReportManager"/>
+  </listeners>
+  <test thread-count="5" name="viewproducts test cases(failed)">
+    <classes>
+      <class name="testCases.ViewProductsCase">
+        <methods>
+          <include name="viewProductFunctions"/>
+        </methods>
+      </class> <!-- testCases.ViewProductsCase -->
+    </classes>
+  </test> <!-- viewproducts test cases(failed) -->
+</suite> <!-- Failed suite [view products suite] -->
