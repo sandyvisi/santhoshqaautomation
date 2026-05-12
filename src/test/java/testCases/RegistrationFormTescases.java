@@ -20,7 +20,8 @@ public class RegistrationFormTescases {
 
 	@BeforeMethod
 	public void launchBrowser() throws IOException {
-		regForm.init();
+		base.init();
+//		always use base
 	}
 
 	@Test(priority = 1, retryAnalyzer = utils.RetryAnalyzer.class, dataProvider = "regform")
