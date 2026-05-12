@@ -2,6 +2,7 @@
 <suite name="REGISTRATION FORM SUITE">
 	<listeners>
 		<listener class-name="utils.ExtentReportManager" />
+		<listener class-name="utils.RetryListener"/>		
 	</listeners>
 	<test name="REGFORM TEST CASES">
 		<classes>

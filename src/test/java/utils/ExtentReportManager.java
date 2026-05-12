@@ -14,7 +14,9 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-public class ExtentReportManager implements ITestListener {
+import basePackage.BaseClass;
+
+public class ExtentReportManager extends BaseClass implements ITestListener {
 
 	String timeStamp = new SimpleDateFormat("HH-mm-ss").format(new Date());
 
@@ -52,7 +54,6 @@ public class ExtentReportManager implements ITestListener {
 	@Override
 	public void onTestSuccess(ITestResult result) {
 
-		extentTest = extentReports.createTest(result.getName());
 		extentTest.log(Status.PASS, "Test case is passed" + result.getName());
 
 	}
@@ -60,12 +61,14 @@ public class ExtentReportManager implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 
-		extentTest = extentReports.createTest(result.getName());
 		extentTest.log(Status.FAIL, "Test case is failed" + result.getName());
 		extentTest.log(Status.FAIL, result.getThrowable());
 		try {
-			String path = ScreenshotUtil.getScreenshot(result.getName());
-			extentTest.addScreenCaptureFromPath(path);
+			String path = ScreenshotUtil.getScreenshot(BaseClass.driver, result.getName());
+			if (path != null) {
+				extentTest.addScreenCaptureFromPath(path);
+			}
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,7 +77,6 @@ public class ExtentReportManager implements ITestListener {
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		extentTest = extentReports.createTest(result.getName());
 		extentTest.log(Status.SKIP, "Test case is failed" + result.getName());
 
 	}

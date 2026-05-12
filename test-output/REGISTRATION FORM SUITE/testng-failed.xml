@@ -3,6 +3,7 @@
 <suite name="Failed suite [REGISTRATION FORM SUITE]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="utils.ExtentReportManager"/>
+    <listener class-name="utils.RetryListener"/>
   </listeners>
   <test thread-count="5" name="REGFORM TEST CASES(failed)">
     <classes>
