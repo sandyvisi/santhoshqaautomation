@@ -99,8 +99,8 @@ public class RegisterFormPage extends BaseClass {
 
 	}
 
-	private void assertElementIsAvailable() {		
-		
+	private void assertElementIsAvailable() {
+
 		WebElement element = waitForVisibility(regFormSuccessMessageLocator);
 		Assert.assertTrue(element.isDisplayed());
 		System.out.println(element.getText());
@@ -126,6 +126,7 @@ public class RegisterFormPage extends BaseClass {
 		clickSubmit();
 		successElement();
 		assertElementIsAvailable();
+		Assert.assertEquals(false, true);
 
 	}
 

@@ -20,10 +20,10 @@ public class RegistrationFormTescases {
 
 	@BeforeMethod
 	public void launchBrowser() throws IOException {
-		base.init();
+		regForm.init();
 	}
 
-	@Test(priority = 1, dataProvider = "regform", invocationCount = 4)
+	@Test(priority = 1, retryAnalyzer = utils.RetryAnalyzer.class, dataProvider = "regform")
 	public void regFormFunctions(String firstName, String lastName, String address, String street, String email) {
 		regForm.registerForm(firstName, lastName, address, street, email);
 	}

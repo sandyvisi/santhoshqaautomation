@@ -163,8 +163,4 @@ public class BaseClass {
 		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(text);
 	}
 
-	public void tearDown() {
-		driver.quit();
-	}
-
 }
