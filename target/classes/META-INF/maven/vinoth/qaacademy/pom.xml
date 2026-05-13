@@ -142,7 +142,7 @@
 				<version>3.2.5</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>TestRunner.xml</suiteXmlFile>
+						<suiteXmlFile>regforms.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
