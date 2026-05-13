@@ -126,7 +126,6 @@ public class RegisterFormPage extends BaseClass {
 		clickSubmit();
 		successElement();
 		assertElementIsAvailable();
-		Assert.assertEquals(false, true);
 
 	}
 
