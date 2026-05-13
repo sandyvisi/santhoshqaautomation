@@ -126,6 +126,7 @@ public class RegisterFormPage extends BaseClass {
 		clickSubmit();
 		successElement();
 		assertElementIsAvailable();
+		System.out.println("code is compelted");
 
 	}
 
