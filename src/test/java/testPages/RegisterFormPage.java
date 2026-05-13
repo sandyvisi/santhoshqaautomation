@@ -1,5 +1,8 @@
 package testPages;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+
 import java.io.IOException;
 
 import org.openqa.selenium.By;
@@ -107,7 +110,8 @@ public class RegisterFormPage extends BaseClass {
 
 	}
 
-	public void registerForm(String firstName, String lastName, String address, String street, String email) {
+	public void registerForm(String tcID, String firstName, String lastName, String address, String street,
+			String email) {
 
 		enterFirstName(firstName);
 		enterLastName(lastName);
@@ -126,6 +130,7 @@ public class RegisterFormPage extends BaseClass {
 		clickSubmit();
 		successElement();
 		assertElementIsAvailable();
+
 		System.out.println("code is compelted");
 
 	}

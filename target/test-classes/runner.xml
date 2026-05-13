@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >
+<suite name="bdd cucumber SUITE">
+	<listeners>
+		<listener class-name="utils.ExtentReportManager" />
+		<listener class-name="utils.RetryListener" />
+	</listeners>
+	<test name="REGFORM TEST CASES">
+		<classes>
+			<class name="Runners.TestRunner" />
+		</classes>
+	</test>
+</suite>

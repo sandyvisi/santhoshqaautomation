@@ -23,9 +23,10 @@ public class RegistrationFormTescases {
 		regForm.init();
 	}
 
-	@Test(priority = 1, retryAnalyzer = utils.RetryAnalyzer.class, dataProvider = "regform")
-	public void regFormFunctions(String firstName, String lastName, String address, String street, String email) {
-		regForm.registerForm(firstName, lastName, address, street, email);
+	@Test(priority = 1, dataProvider = "regform")
+	public void regFormFunctions(String tcid, String firstName, String lastName, String address, String street,
+			String email) {
+		regForm.registerForm(tcid,firstName, lastName, address, street, email);
 	}
 
 	@DataProvider(name = "regform")

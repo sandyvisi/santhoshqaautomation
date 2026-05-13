@@ -1,2 +1,5 @@
-/basePackage/
+/Runners/
+/stepDefinitions/
 /utils/
+/testPages/
+/testCases/
