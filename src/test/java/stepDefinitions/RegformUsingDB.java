@@ -35,7 +35,7 @@ public class RegformUsingDB {
 		String street = null;
 		String email = null;
 
-		ResultSet rs = DBConnect.getDataByStringCondition("registrationform", "testcase_id", "TC_01");
+		ResultSet rs = DBConnect.getDataByStringCondition("registrationform", "testcase_id", "TC_02");
 
 		if (rs.next()) {
 
