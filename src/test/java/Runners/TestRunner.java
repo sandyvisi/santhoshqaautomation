@@ -4,7 +4,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		features = "D:\\eclipse-workspace\\vinothqaacademy\\src\\test\\resources\\features\\regformfill.feature", 
+		features = "D:\\eclipse-workspace\\vinothqaacademy\\src\\test\\resources\\features\\RegFormsUsingDB.feature", 
 		glue = "stepDefinitions", 
 		plugin = {"pretty", "html:target/cucumber-report.html" }, 		 
 		monochrome = true, 
@@ -12,3 +12,4 @@ import io.cucumber.testng.CucumberOptions;
 public class TestRunner extends AbstractTestNGCucumberTests {
 
 }
+
