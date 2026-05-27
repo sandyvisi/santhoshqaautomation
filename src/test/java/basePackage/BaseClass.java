@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -18,6 +19,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,39 +28,32 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 
-	public static WebDriver driver;
-	protected static WebDriverWait explicitWait;
-	protected static Properties properties;
-	protected static String propertiesFilePath = System.getProperty("user.dir") + File.separator + "src"
-			+ File.separator + "test" + File.separator + "resources" + File.separator + "configProperties.properties";
+	public ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	public Properties properties;
+
+	protected WebDriverWait explicitWait;
+
+	protected String propertiesFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator
+			+ "test" + File.separator + "resources" + File.separator + "configProperties.properties";
 //	src\test\resources\configProperties.properties
-	protected static FileInputStream fis;
-	protected static Select select;
-	protected static JavascriptExecutor js;
+
+	protected JavascriptExecutor js;
 
 	public void init() throws IOException {
-		ChromeOptions options = new ChromeOptions();
-		Map<String, Object> prefs = new HashMap<>();
-		prefs.put("autofill.profile_enabled", false);
-		prefs.put("autofill.credit_card_enabled", false);
-		prefs.put("profile.default_content_setting_values.notifications", 2);
-		prefs.put("profile.default_content_setting_values.popups", 2);
-		options.addArguments("--disable-notifications");
-		options.addArguments("--disable-infobars");
-		options.addArguments("--disable-extensions");
-		options.addArguments("--disable-popup-blocking");
 
-		options.setExperimentalOption("prefs", prefs);
-		fis = new FileInputStream(propertiesFilePath);
+		FileInputStream fis = new FileInputStream(propertiesFilePath);
 		properties = new Properties();
 		properties.load(fis);
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(options);
-		driver.manage().window().maximize();
-		driver.get(properties.getProperty("registrationFormUrl"));
 
-		explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		js = (JavascriptExecutor) driver;
+		WebDriverManager.firefoxdriver().setup();
+		driver.set(new FirefoxDriver());
+		driver.get().manage().window().maximize();
+
+		// driver.get(properties.getProperty("registrationFormUrl"));
+		driver.get().get(properties.getProperty("healthCareUrl"));
+
+		explicitWait = new WebDriverWait(driver.get(), Duration.ofSeconds(30));
+		js = (JavascriptExecutor) driver.get();
 		fis.close();
 
 	}
@@ -81,6 +76,12 @@ public class BaseClass {
 
 	}
 
+	public List<WebElement> checkVisibilityOfAllElements(By locator) {
+
+		List<WebElement> allelements = explicitWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+		return allelements;
+	}
+
 	public void jsClick(By locator) {
 
 		WebElement element = explicitWait.until(ExpectedConditions.elementToBeClickable(locator));
@@ -89,6 +90,11 @@ public class BaseClass {
 
 	public void scrollToBottom() {
 		js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
+	}
+
+	public void elementClickable(WebElement element) {
+		WebElement clickElement = explicitWait.until(ExpectedConditions.elementToBeClickable(element));
+		clickElement.click();
 	}
 
 	public WebElement returnElement(By locator) {
@@ -108,7 +114,7 @@ public class BaseClass {
 	}
 
 	public void moveToAlertAndAccept() {
-		Alert alert = driver.switchTo().alert();
+		Alert alert = driver.get().switchTo().alert();
 		alert.accept();
 	}
 
@@ -136,12 +142,21 @@ public class BaseClass {
 		}
 	}
 
+	public String returnAttributeValue(By locator, String attribute) {
+
+		WebElement element = driver.get().findElement(locator);
+		return element.getAttribute(attribute);
+
+	}
+
 	public void scrollDownToElement(By locator) {
-		js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(locator));
+		WebElement element = explicitWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
 	public void selectList(By locator, String text) {
-		select = new Select(driver.findElement(locator));
+		Select select = new Select(driver.get().findElement(locator));
 		select.selectByVisibleText(text);
 
 	}
@@ -161,6 +176,15 @@ public class BaseClass {
 	public void sendKeys(By locator, String text) {
 
 		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(text);
+	}
+
+	public void tearDown() {
+
+		if (driver.get() != null) {
+			driver.get().quit();
+			driver.remove();
+		}
+
 	}
 
 }

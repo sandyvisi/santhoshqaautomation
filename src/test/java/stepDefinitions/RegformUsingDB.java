@@ -18,6 +18,16 @@ import utils.ExcelReaderCucumber;
 public class RegformUsingDB {
 
 	RegisterFormPageUsingDB regform = new RegisterFormPageUsingDB();
+	String testcaseid = null;
+	String firstName = null;
+	String lastName = null;
+	String address = null;
+	String street = null;
+	String email = null;
+	String city = null;
+	String state = null;
+	String country = null;
+	String postalcode = null;
 
 	@Given("user launches the url")
 	public void launchBrowser() throws IOException {
@@ -28,12 +38,6 @@ public class RegformUsingDB {
 	public void getDataFromSheet() throws EncryptedDocumentException, IOException, SQLException {
 
 		DBConnect.connectDB();
-		String testcaseid = null;
-		String firstName = null;
-		String lastName = null;
-		String address = null;
-		String street = null;
-		String email = null;
 
 		ResultSet rs = DBConnect.getDataByStringCondition("registrationform", "testcase_id", "TC_02");
 
@@ -44,14 +48,48 @@ public class RegformUsingDB {
 			lastName = rs.getString("lastname");
 			address = rs.getString("address");
 			street = rs.getString("streetaddress");
+			city = rs.getString("city");
+			state = rs.getString("state");
+			postalcode = rs.getString("postalcode");
 			email = rs.getString("email");
+			country = rs.getString("country");
 		}
 
 		System.out.println(testcaseid);
 		System.out.println("TC_01");
 
-		regform.registerForm(firstName, lastName, address, street, email);
+		regform.registerForm(firstName, lastName, address, street, email, city, state, postalcode, country);
 
+	}
+
+	@When("Except email field enter all other details")
+	public void getDataFromDB() throws SQLException {
+		DBConnect.connectDB();
+
+		ResultSet rs = DBConnect.getDataByStringCondition("registrationform", "testcase_id", "TC_01");
+
+		if (rs.next()) {
+
+			testcaseid = rs.getString("testcase_id");
+			firstName = rs.getString("firstname");
+			lastName = rs.getString("lastname");
+			address = rs.getString("address");
+			street = rs.getString("streetaddress");
+			city = rs.getString("city");
+			state = rs.getString("state");
+			postalcode = rs.getString("postalcode");
+			email = rs.getString("email");
+			country = rs.getString("country");
+
+		}
+
+		regform.registerForm(firstName, lastName, address, street, email, city, state, postalcode, country);
+
+	}
+
+	@When("the form should not submitted")
+	public void formNotSubmitted() {
+		 DBConnect.closeDB();
 	}
 
 	@Then("user clicks submit button")

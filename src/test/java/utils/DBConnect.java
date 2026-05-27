@@ -25,7 +25,6 @@ public class DBConnect {
 			e.printStackTrace();
 		}
 
-		
 		return con;
 	}
 
@@ -50,6 +49,27 @@ public class DBConnect {
 		}
 
 		return resultset;
+	}
+
+	public static ResultSet getDataMoreTables(String table1, String table2, String column1, String column2,
+			String comCol1, String comCol2) {
+
+		ResultSet rs = null;
+		Statement statement = null;
+		String query = null;
+
+		try {
+
+			query = "select " + table1 + "." + column1 + " , " + table2 + "." + column2 + " from " + table1
+					+ " inner join " + table2 + " on " + table1 + "." + comCol1 + " = " + table2 + "." + comCol2;
+			statement = con.createStatement();
+			rs = statement.executeQuery(query);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return rs;
+
 	}
 
 	public static void closeDB() {

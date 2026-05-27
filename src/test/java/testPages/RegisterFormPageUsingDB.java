@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -25,8 +26,20 @@ public class RegisterFormPageUsingDB extends BaseClass {
 	private By maleLocator = By.id("vfb-31-1");
 	private By seleniumCheckboxLocator = By.id("vfb-20-0");
 	private By uncheckCheckboxLocator = By.id("vfb-20-3");
-	private By addressFieldLocator = By.id("vfb-13-address");
-	private By streetLocator = By.id("vfb-13-address-2");
+	private By streetAddressLocator = By.id("vfb-13-address");
+	private By apartmentLocator = By.id("vfb-13-address-2");
+	private By cityLocator = By.id("vfb-13-city");
+	private By stateLocator = By.id("vfb-13-state");
+	private By postalCodeLocator = By.id("vfb-13-zip");
+
+	private By countryListLocator = By.xpath("//span/ul[@id='select2-vfb-13-country-results']/li");
+
+	private By countryContainerLocator = By.xpath("//span[@id='select2-vfb-13-country-container']/parent::span");
+
+	private By searchCountryByentryLocator = By.xpath("//input[@class='select2-search__field']");
+
+	private By waitForEnteredCountryLocator = By.xpath("//span[@id='select2-vfb-13-country-container']/parent::span");
+
 	private By emailLocator = By.id("vfb-14");
 	private By verificationCodeLocator = By.xpath("//input[@id='vfb-3']/following-sibling::label");
 
@@ -56,16 +69,53 @@ public class RegisterFormPageUsingDB extends BaseClass {
 
 	private void enterAddress(String address) {
 
-		sendKeys(addressFieldLocator, address);
+		sendKeys(streetAddressLocator, address);
 	}
 
 	private void enterStreet(String street) {
-		sendKeys(streetLocator, street);
+		sendKeys(apartmentLocator, street);
+	}
+
+	private void enterCity(String city) {
+		sendKeys(cityLocator, city);
+	}
+
+	private void enterState(String state) {
+		sendKeys(stateLocator, state);
+	}
+
+	private void enterPostalcode(String postalcode) {
+		sendKeys(postalCodeLocator, postalcode);
+	}
+
+	private void clickCtryDropdown() {
+		click(countryContainerLocator);
+	}
+
+	private void enterCtryName(String ctry) {
+		sendKeys(searchCountryByentryLocator, ctry);
+	}
+
+	private void clickSearchedCtry() {
+		click(waitForEnteredCountryLocator);
 	}
 
 	private void enterEmail(String email) {
 
 		sendKeys(emailLocator, email);
+
+	}
+
+	private void selectAcountry(String countryName) {
+
+		List<WebElement> listOfcountries = checkVisibilityOfAllElements(countryListLocator);
+		for (WebElement country : listOfcountries) {
+			if (country.getText().equals("India")) {
+				elementClickable(country);
+				break;
+			}
+
+		}
 
 	}
 
@@ -110,7 +160,8 @@ public class RegisterFormPageUsingDB extends BaseClass {
 
 	}
 
-	public void registerForm(String firstName, String lastName, String address, String street, String email) {
+	public void registerForm(String firstName, String lastName, String address, String street, String email,
+			String city, String state, String postalcode, String ctry) {
 
 		enterFirstName(firstName);
 		enterLastName(lastName);
@@ -119,17 +170,23 @@ public class RegisterFormPageUsingDB extends BaseClass {
 		uncheckDevopsCheckBox();
 		enterAddress(address);
 		enterStreet(street);
+		enterCity(city);
+		enterState(state);
+		enterPostalcode(postalcode);
+		clickCtryDropdown();
+//		enterCtryName(ctry);
+//		clickSearchedCtry();
+		selectAcountry(ctry);
 		enterEmail(email);
 		waitForCodeVisible();
 		getText();
 		getCode();
-		System.out.println("code text is :" + codeText + " <------>" + "code is :" + code);
+		System.out.println("code text is :" + codeText + " ============ " + "code is :" + code);
 		enterCode(code);
 		scrollDownToSubmit();
 		clickSubmit();
 		successElement();
 		assertElementIsAvailable();
-		System.out.println("code is compelted");
 
 	}
 

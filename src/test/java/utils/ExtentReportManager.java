@@ -18,16 +18,16 @@ import basePackage.BaseClass;
 
 public class ExtentReportManager extends BaseClass implements ITestListener {
 
-	String timeStamp = new SimpleDateFormat("HH-mm-ss").format(new Date());
-
 	public ExtentSparkReporter sparkReporter;
 	public ExtentReports extentReports;
-	public ExtentTest extentTest;
 
-	public String reportsPath = System.getProperty("user.dir") + "\\reports\\" + timeStamp + "report.html";
+	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
 	@Override
 	public void onStart(ITestContext context) {
+		String timeStamp = new SimpleDateFormat("HH-mm-ss").format(new Date());
+		String reportsPath = System.getProperty("user.dir") + "\\reports\\" + timeStamp + "report.html";
+
 		sparkReporter = new ExtentSparkReporter(reportsPath);
 		sparkReporter.config().setDocumentTitle("Smoke Test Document");
 		sparkReporter.config().setReportName("smoke report");
@@ -47,26 +47,26 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 	@Override
 	public void onTestStart(ITestResult result) {
 		System.out.println("---------Test Method Execution is Started------");
-		extentTest = extentReports.createTest(result.getName());
+		extentTest.set(extentReports.createTest(result.getName()));
 
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
 
-		extentTest.log(Status.PASS, "Test case is passed" + result.getName());
+		extentTest.get().log(Status.PASS, "Test case is passed" + result.getName());
 
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
 
-		extentTest.log(Status.FAIL, "Test case is failed" + result.getName());
-		extentTest.log(Status.FAIL, result.getThrowable());
+		extentTest.get().log(Status.FAIL, "Test case is failed" + result.getName());
+		extentTest.get().log(Status.FAIL, result.getThrowable());
 		try {
-			String path = ScreenshotUtil.getScreenshot(BaseClass.driver, result.getName());
+			String path = ScreenshotUtil.getScreenshot(driver.get(), result.getName());
 			if (path != null) {
-				extentTest.addScreenCaptureFromPath(path);
+				extentTest.get().addScreenCaptureFromPath(path);
 			}
 
 		} catch (IOException e) {
@@ -77,7 +77,7 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		extentTest.log(Status.SKIP, "Test case is failed" + result.getName());
+		extentTest.get().log(Status.SKIP, "Test case is failed" + result.getName());
 
 	}
 

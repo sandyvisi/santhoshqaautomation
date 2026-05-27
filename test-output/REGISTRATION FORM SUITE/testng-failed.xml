@@ -9,7 +9,7 @@
     <classes>
       <class name="testCases.RegistrationFormTescases">
         <methods>
-          <include name="regFormFunctions" invocation-numbers="0"/>
+          <include name="regFormFunctions" invocation-numbers="0 1"/>
           <include name="launchBrowser"/>
         </methods>
       </class> <!-- testCases.RegistrationFormTescases -->

@@ -18,7 +18,7 @@ public class ExcelReader {
 	public static Object[][] excelDatas(String sheetName) throws EncryptedDocumentException, IOException {
 
 		String excelPath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
-				+ File.separator + "resources" + File.separator + "vinothQaAutomationTestDatas.xlsx";
+				+ File.separator + "resources" + File.separator + "vinothQaAutomation.xlsx";
 
 		File excelFilepath = new File(excelPath);
 
