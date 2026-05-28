@@ -49,8 +49,8 @@ public class BaseClass {
 		driver.set(new FirefoxDriver());
 		driver.get().manage().window().maximize();
 
-		// driver.get(properties.getProperty("registrationFormUrl"));
-		driver.get().get(properties.getProperty("healthCareUrl"));
+		 driver.get(properties.getProperty("registrationFormUrl"));
+//		driver.get().get(properties.getProperty("healthCareUrl"));
 
 		explicitWait = new WebDriverWait(driver.get(), Duration.ofSeconds(30));
 		js = (JavascriptExecutor) driver.get();
