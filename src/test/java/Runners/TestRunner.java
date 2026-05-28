@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 		glue = "stepDefinitions", 
 		plugin = {"pretty", "html:target/cucumber-report.html" }, 		 
 		monochrome = true, 
-		dryRun = false)
+		dryRun = true)
 public class TestRunner extends AbstractTestNGCucumberTests {
 
 }

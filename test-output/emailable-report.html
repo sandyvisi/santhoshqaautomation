@@ -9,23 +9,31 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">1,675</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">1,842</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">Runners.TestRunner</td><td><a href="#m0">runScenario</a></td><td rowspan="2">1779962388044</td><td rowspan="2">330</td></tr><tr class="failedeven"><td><a href="#m1">runScenario</a></td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">Runners.TestRunner</td><td><a href="#m0">runScenario</a></td><td rowspan="2">1779985478496</td><td rowspan="2">289</td></tr><tr class="failedeven"><td><a href="#m1">runScenario</a></td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">Runners.TestRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Fill the form using excel sheet&quot;</td><td>&quot;Check the registration form&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.Error: Unresolved compilation problem: 
-	The method get() in the type ThreadLocal&lt;WebDriver&gt; is not applicable for the arguments (String)
+<h2>Default test</h2><h3 id="m0">Runners.TestRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Fill the form using excel sheet&quot;</td><td>&quot;Check the registration form&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">io.cucumber.testng.UndefinedStepException: The step &apos;user gets data using &quot;TC_01&quot;&apos; is undefined.
+You can implement this step using the snippet(s) below:
 
-	at basePackage.BaseClass.init(BaseClass.java:52)
-	at stepDefinitions.RegformUsingDB.launchBrowser(RegformUsingDB.java:34)
-	at ✽.user launches the url(file:///D:/eclipse-workspace/vinothqaacademy/src/test/resources/features/regformfill.feature:4)
+@When(&quot;user gets data using {string}&quot;)
+public void user_gets_data_using(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.user gets data using &quot;TC_01&quot;(file:///D:/eclipse-workspace/vinothqaacademy/src/test/resources/features/regformfill.feature:5)
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">Runners.TestRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Fill the form using excel sheet&quot;</td><td>&quot;Check the registration form&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.Error: Unresolved compilation problem: 
-	The method get() in the type ThreadLocal&lt;WebDriver&gt; is not applicable for the arguments (String)
+<h3 id="m1">Runners.TestRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Fill the form using excel sheet&quot;</td><td>&quot;Check the registration form&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">io.cucumber.testng.UndefinedStepException: The step &apos;user gets data using &quot;TC_02&quot;&apos; is undefined.
+You can implement this step using the snippet(s) below:
 
-	at basePackage.BaseClass.init(BaseClass.java:52)
-	at stepDefinitions.RegformUsingDB.launchBrowser(RegformUsingDB.java:34)
-	at ✽.user launches the url(file:///D:/eclipse-workspace/vinothqaacademy/src/test/resources/features/regformfill.feature:4)
+@When(&quot;user gets data using {string}&quot;)
+public void user_gets_data_using(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.user gets data using &quot;TC_02&quot;(file:///D:/eclipse-workspace/vinothqaacademy/src/test/resources/features/regformfill.feature:5)
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

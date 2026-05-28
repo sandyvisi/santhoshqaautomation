@@ -2,10 +2,10 @@ Feature: Check the registration form
 
   Scenario Outline: Fill the form using excel sheet
     Given user launches the url
-    When user gets data using "<testcaseid>"
+    When user gets data using "<TC_ID>"
     Then user clicks submit button
 
     Examples:
-      | testcaseid |
-      | TC_01      |
-      | TC_02      |
+      | TC_ID |
+      | TC_01 |
+      | TC_02 |
