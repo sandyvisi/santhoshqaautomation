@@ -23,9 +23,9 @@ public class FillingForms {
 	}
 
 	@When("user gets data using {string}")
-	public void getDataFromExcel() throws EncryptedDocumentException, IOException {
+	public void getDataFromExcel(String string) throws EncryptedDocumentException, IOException {
 
-		Map<String, String> formDatas = ExcelReaderCucumber.getCellData("regforms", "TC_01");
+		Map<String, String> formDatas = ExcelReaderCucumber.getCellData("regforms", string);
 
 		String tcid = formDatas.get("TC_ID");
 		String firstName = formDatas.get("firstName");

@@ -29,7 +29,7 @@ public class RegformUsingDB {
 	String country = null;
 	String postalcode = null;
 
-	@Given("user launches the url")
+	@Given("user launches the url db")
 	public void launchBrowser() throws IOException {
 		regform.init();
 	}
@@ -92,7 +92,7 @@ public class RegformUsingDB {
 		 DBConnect.closeDB();
 	}
 
-	@Then("user clicks submit button")
+	@Then("user clicks submit button db")
 	public void user_clicks_submit_button() {
 		System.out.println("the db is executed successfully");
 		DBConnect.closeDB();
