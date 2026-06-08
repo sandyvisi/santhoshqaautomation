@@ -10,6 +10,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import basePackage.BaseClass;
+
 public class ScreenshotUtil {
 
 	public static String getScreenshot(WebDriver driver, String name) throws IOException {
@@ -29,6 +31,8 @@ public class ScreenshotUtil {
 			FileUtils.copyFile(source, destination);
 
 		} catch (IOException io) {
+			io.printStackTrace();
+		} catch (Exception io) {
 			io.printStackTrace();
 		} finally {
 			System.out.println("Screenshot is copied");

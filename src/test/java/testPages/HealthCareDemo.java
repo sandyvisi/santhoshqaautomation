@@ -7,13 +7,9 @@ import basePackage.BaseClass;
 public class HealthCareDemo extends BaseClass {
 
 	private By patientNameLocator = By.id("patient-name");
-
 	private By patientIdLocator = By.id("patient-id");
-
 	private By genderLocator = By.xpath("//input[@value='male']");
-
 	private By symptomsLocator = By.xpath("//input[@value='headache']");
-
 	private By submitLocator = By.xpath("//button[contains(text(),'Submit')]");
 
 	public String id;

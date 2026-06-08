@@ -18,7 +18,7 @@ public class PatientFormTestcases {
 
 	@BeforeMethod()
 	public void initBrowser() throws IOException {
-		hdemo.init();
+		hdemo.init("chrome");
 	}
 
 	@Test(priority = 1, dataProvider = "patientData")

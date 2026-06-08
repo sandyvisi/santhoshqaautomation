@@ -1,181 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-23T00:41:22 IST" name="PATIENT FORM SUITE" finished-at="2026-05-23T00:42:25 IST" duration-ms="62656">
+  <suite started-at="2026-06-02T09:55:58 IST" name="Default suite" finished-at="2026-06-02T09:56:13 IST" duration-ms="14885">
     <groups>
     </groups>
-    <test started-at="2026-05-23T00:41:22 IST" name="PATIENT TEST CASES" finished-at="2026-05-23T00:42:25 IST" duration-ms="62656">
-      <class name="testCases.PatientFormTestcases">
-        <test-method is-config="true" signature="initBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:41:25 IST" name="initBrowser" finished-at="2026-05-23T00:42:17 IST" duration-ms="52417" status="PASS">
+    <test started-at="2026-06-02T09:55:58 IST" name="Default test" finished-at="2026-06-02T09:56:13 IST" duration-ms="14885">
+      <class name="testCases.HandleDropDownsTestCases">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:testCases.HandleDropDownsTestCases@6f4a47c7]" started-at="2026-06-02T09:55:58 IST" name="launchBrowser" finished-at="2026-06-02T09:56:12 IST" duration-ms="13870" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initBrowser -->
-        <test-method is-config="true" signature="initBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:41:25 IST" name="initBrowser" finished-at="2026-05-23T00:42:05 IST" duration-ms="40606" status="PASS">
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="dropDown()[pri:0, instance:testCases.HandleDropDownsTestCases@6f4a47c7]" started-at="2026-06-02T09:56:12 IST" name="dropDown" finished-at="2026-06-02T09:56:13 IST" duration-ms="916" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initBrowser -->
-        <test-method is-config="true" signature="initBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:41:25 IST" name="initBrowser" finished-at="2026-05-23T00:42:14 IST" duration-ms="49669" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initBrowser -->
-        <test-method is-config="true" signature="initBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:41:25 IST" name="initBrowser" finished-at="2026-05-23T00:42:11 IST" duration-ms="46751" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initBrowser -->
-        <test-method is-config="true" signature="initBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:41:25 IST" name="initBrowser" finished-at="2026-05-23T00:41:52 IST" duration-ms="27024" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initBrowser -->
-        <test-method is-config="true" signature="initBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:41:25 IST" name="initBrowser" finished-at="2026-05-23T00:42:10 IST" duration-ms="45523" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initBrowser -->
-        <test-method is-config="true" signature="initBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:41:25 IST" name="initBrowser" finished-at="2026-05-23T00:41:53 IST" duration-ms="28202" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initBrowser -->
-        <test-method signature="healthCareActions(java.lang.String,java.lang.String)[pri:1, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:41:52 IST" name="healthCareActions" data-provider="patientData" finished-at="2026-05-23T00:41:56 IST" duration-ms="4073" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[vinothini]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[value]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- healthCareActions -->
-        <test-method signature="healthCareActions(java.lang.String,java.lang.String)[pri:1, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:41:53 IST" name="healthCareActions" data-provider="patientData" finished-at="2026-05-23T00:41:56 IST" duration-ms="2970" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[dhashwan]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[value]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- healthCareActions -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:41:56 IST" name="closeBrowser" finished-at="2026-05-23T00:42:23 IST" duration-ms="26815" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:41:56 IST" name="closeBrowser" finished-at="2026-05-23T00:42:24 IST" duration-ms="28262" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-        <test-method signature="healthCareActions(java.lang.String,java.lang.String)[pri:1, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:42:05 IST" name="healthCareActions" data-provider="patientData" finished-at="2026-05-23T00:42:07 IST" duration-ms="1436" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[sandy]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[value]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- healthCareActions -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:42:07 IST" name="closeBrowser" finished-at="2026-05-23T00:42:25 IST" duration-ms="18222" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-        <test-method signature="healthCareActions(java.lang.String,java.lang.String)[pri:1, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:42:10 IST" name="healthCareActions" data-provider="patientData" finished-at="2026-05-23T00:42:11 IST" duration-ms="1332" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[painkili]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[value]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- healthCareActions -->
-        <test-method signature="healthCareActions(java.lang.String,java.lang.String)[pri:1, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:42:11 IST" name="healthCareActions" data-provider="patientData" finished-at="2026-05-23T00:42:13 IST" duration-ms="1530" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[ammu]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[value]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- healthCareActions -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:42:11 IST" name="closeBrowser" finished-at="2026-05-23T00:42:25 IST" duration-ms="13496" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:42:13 IST" name="closeBrowser" finished-at="2026-05-23T00:42:25 IST" duration-ms="11972" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-        <test-method signature="healthCareActions(java.lang.String,java.lang.String)[pri:1, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:42:14 IST" name="healthCareActions" data-provider="patientData" finished-at="2026-05-23T00:42:16 IST" duration-ms="1550" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[santhoshkumar]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[value]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- healthCareActions -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:42:16 IST" name="closeBrowser" finished-at="2026-05-23T00:42:25 IST" duration-ms="9139" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-        <test-method signature="healthCareActions(java.lang.String,java.lang.String)[pri:1, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:42:17 IST" name="healthCareActions" data-provider="patientData" finished-at="2026-05-23T00:42:19 IST" duration-ms="1540" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[visi]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[value]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- healthCareActions -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.PatientFormTestcases@7d8704ef]" started-at="2026-05-23T00:42:19 IST" name="closeBrowser" finished-at="2026-05-23T00:42:25 IST" duration-ms="6355" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-      </class> <!-- testCases.PatientFormTestcases -->
-    </test> <!-- PATIENT TEST CASES -->
-  </suite> <!-- PATIENT FORM SUITE -->
+        </test-method> <!-- dropDown -->
+      </class> <!-- testCases.HandleDropDownsTestCases -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

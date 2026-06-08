@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -16,6 +17,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -39,18 +41,38 @@ public class BaseClass {
 
 	protected JavascriptExecutor js;
 
-	public void init() throws IOException {
+	public void init(String browser) throws IOException {
 
 		FileInputStream fis = new FileInputStream(propertiesFilePath);
 		properties = new Properties();
 		properties.load(fis);
 
-		WebDriverManager.firefoxdriver().setup();
-		driver.set(new FirefoxDriver());
-		driver.get().manage().window().maximize();
+		if (browser.equalsIgnoreCase("chrome")) {
 
-		// driver.get(properties.getProperty("registrationFormUrl"));
-		driver.get().get(properties.getProperty("healthCareUrl"));
+			WebDriverManager.chromedriver().setup();
+			driver.set(new ChromeDriver());
+
+		} else if (browser.equalsIgnoreCase("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			driver.set(new FirefoxDriver());
+
+		}
+
+		else if (browser.equalsIgnoreCase("edge")) {
+
+			WebDriverManager.edgedriver().setup();
+			driver.set(new EdgeDriver());
+
+		} else {
+			System.out.println("No proper browser is being called");
+		}
+
+//		driver.get().get(properties.getProperty("registrationFormUrl"));
+//		driver.get().get(properties.getProperty("healthCareUrl"));
+//		driver.get().get(properties.getProperty("multiplewindow"));
+		driver.get().get(properties.getProperty("handledropdowns"));
+		driver.get().manage().window().maximize();
+		driver.get().manage().deleteAllCookies();
 
 		explicitWait = new WebDriverWait(driver.get(), Duration.ofSeconds(30));
 		js = (JavascriptExecutor) driver.get();
@@ -176,6 +198,44 @@ public class BaseClass {
 	public void sendKeys(By locator, String text) {
 
 		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(text);
+	}
+
+	public String getCurrentWinId() {
+		return driver.get().getWindowHandle();
+
+	}
+
+	public void switchToNewWindow() {
+		Set<String> mul = driver.get().getWindowHandles();
+
+		for (String win : mul) {
+
+			if (!getCurrentWinId().equals(win)) {
+
+				driver.get().switchTo().window(win);
+				driver.get().manage().window().maximize();
+
+			}
+
+		}
+
+	}
+
+	public void switchToNewTab() {
+		driver.get().switchTo().newWindow(WindowType.TAB);
+
+	}
+
+	public List<WebElement> getLists(By locator) {
+
+		return driver.get().findElements(locator);
+
+	}
+
+	public String gettextOfElement(WebElement element) {
+
+		return element.getText();
+
 	}
 
 	public void tearDown() {
