@@ -26,11 +26,11 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 	@Override
 	public void onStart(ITestContext context) {
 		String timeStamp = new SimpleDateFormat("HH-mm-ss").format(new Date());
-		String reportsPath = System.getProperty("user.dir") + "\\reports\\" + timeStamp + "report.html";
+		String reportsPath = System.getProperty("user.dir") + "\\reports\\" + timeStamp + "automationreport.html";
 
 		sparkReporter = new ExtentSparkReporter(reportsPath);
-		sparkReporter.config().setDocumentTitle("Smoke Test Document");
-		sparkReporter.config().setReportName("smoke report");
+		sparkReporter.config().setDocumentTitle("Automation Document");
+		sparkReporter.config().setReportName("Automation Report");
 		sparkReporter.config().setTheme(Theme.STANDARD);
 
 		extentReports = new ExtentReports();

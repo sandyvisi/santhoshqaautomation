@@ -1,4 +1,5 @@
-/testPages/
-/Runners/
 /basePackage/
+/hooks/
 /stepDefinitions/
+/testCases/
+/testPages/
