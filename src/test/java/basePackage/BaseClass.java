@@ -70,7 +70,8 @@ public class BaseClass {
 //		driver.get().get(properties.getProperty("registrationFormUrl"));
 //		driver.get().get(properties.getProperty("healthCareUrl"));
 //		driver.get().get(properties.getProperty("multiplewindow"));
-		driver.get().get(properties.getProperty("handledropdowns"));
+//		driver.get().get(properties.getProperty("handledropdowns"));
+		driver.get().get(properties.getProperty("handleframes"));
 		driver.get().manage().window().maximize();
 		driver.get().manage().deleteAllCookies();
 
@@ -95,6 +96,22 @@ public class BaseClass {
 		}
 
 		return code;
+
+	}
+
+	public void switchToParentFrame() {
+
+		driver.get().switchTo().parentFrame();
+	}
+
+	public void switchToDefaultContent() {
+
+		driver.get().switchTo().defaultContent();
+	}
+
+	public void switchToFrameUsingName(String name) {
+
+		driver.get().switchTo().frame(name);
 
 	}
 

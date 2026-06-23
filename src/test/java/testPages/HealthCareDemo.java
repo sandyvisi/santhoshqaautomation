@@ -11,8 +11,10 @@ public class HealthCareDemo extends BaseClass {
 	private By genderLocator = By.xpath("//input[@value='male']");
 	private By symptomsLocator = By.xpath("//input[@value='headache']");
 	private By submitLocator = By.xpath("//button[contains(text(),'Submit')]");
+	private By successMessageLocator = By.id("success-message");
 
 	public String id;
+	public String successMessage;
 
 	private void enterPatientName(String patientName) {
 		sendKeys(patientNameLocator, patientName);
@@ -45,6 +47,12 @@ public class HealthCareDemo extends BaseClass {
 
 	}
 
+	private void getMessage(By locator) {
+
+		successMessage = webElementWaitGetText(locator);
+		System.out.println(successMessage);
+	}
+
 	public void healthcareActions(String patientName, String value) {
 
 		enterPatientName(patientName);
@@ -53,6 +61,7 @@ public class HealthCareDemo extends BaseClass {
 		selectHeadeAcheSymptoms();
 		scrollDownToElement(submitLocator);
 		submit();
+		getMessage(successMessageLocator);
 	}
 
 }

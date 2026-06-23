@@ -31,7 +31,7 @@ public class RegformUsingDB {
 
 	@Given("user launches the url db")
 	public void launchBrowser() throws IOException {
-		regform.init();
+		regform.init("chrome");
 	}
 
 	@When("user gets data using DB")
@@ -89,7 +89,7 @@ public class RegformUsingDB {
 
 	@When("the form should not submitted")
 	public void formNotSubmitted() {
-		 DBConnect.closeDB();
+		DBConnect.closeDB();
 	}
 
 	@Then("user clicks submit button db")

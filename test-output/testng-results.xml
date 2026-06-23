@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-02T09:55:58 IST" name="Default suite" finished-at="2026-06-02T09:56:13 IST" duration-ms="14885">
+  <suite started-at="2026-06-15T10:30:25 IST" name="Default suite" finished-at="2026-06-15T10:30:39 IST" duration-ms="13920">
     <groups>
     </groups>
-    <test started-at="2026-06-02T09:55:58 IST" name="Default test" finished-at="2026-06-02T09:56:13 IST" duration-ms="14885">
-      <class name="testCases.HandleDropDownsTestCases">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:testCases.HandleDropDownsTestCases@6f4a47c7]" started-at="2026-06-02T09:55:58 IST" name="launchBrowser" finished-at="2026-06-02T09:56:12 IST" duration-ms="13870" status="PASS">
+    <test started-at="2026-06-15T10:30:25 IST" name="Default test" finished-at="2026-06-15T10:30:39 IST" duration-ms="13920">
+      <class name="testCases.HandleFramesTestcase">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:testCases.HandleFramesTestcase@7494f96a]" started-at="2026-06-15T10:30:25 IST" name="launchBrowser" finished-at="2026-06-15T10:30:37 IST" duration-ms="11633" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="dropDown()[pri:0, instance:testCases.HandleDropDownsTestCases@6f4a47c7]" started-at="2026-06-02T09:56:12 IST" name="dropDown" finished-at="2026-06-02T09:56:13 IST" duration-ms="916" status="PASS">
+        <test-method signature="frameFunctions()[pri:0, instance:testCases.HandleFramesTestcase@7494f96a]" started-at="2026-06-15T10:30:37 IST" name="frameFunctions" finished-at="2026-06-15T10:30:39 IST" duration-ms="2163" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- dropDown -->
-      </class> <!-- testCases.HandleDropDownsTestCases -->
+        </test-method> <!-- frameFunctions -->
+      </class> <!-- testCases.HandleFramesTestcase -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

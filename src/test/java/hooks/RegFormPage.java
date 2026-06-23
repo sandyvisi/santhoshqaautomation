@@ -19,7 +19,7 @@ public class RegFormPage {
 
 	@Given("user launches the url")
 	public void launchBrowser() throws IOException {
-		regform.init();
+		regform.init("chrome");
 	}
 
 	@When("user gets data using {string}")
